@@ -1,0 +1,21 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.MuiDataGrid-row-selected.custom-data-grid {
+  background-color: #cce6ff; /* 선택된 행의 배경색을 변경 */
+  /* 다른 사용자 지정 스타일을 추가할 수 있음 */
+}

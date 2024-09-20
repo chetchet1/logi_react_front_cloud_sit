@@ -1,0 +1,26 @@
+{
+  "..\\components\\ui-component\\Locales.tsx -> ../../utils/locales/en.json": {
+    "id": "..\\components\\ui-component\\Locales.tsx -> ../../utils/locales/en.json",
+    "files": [
+      "static/chunks/src_utils_locales_en_json.js"
+    ]
+  },
+  "..\\components\\ui-component\\Locales.tsx -> ../../utils/locales/fr.json": {
+    "id": "..\\components\\ui-component\\Locales.tsx -> ../../utils/locales/fr.json",
+    "files": [
+      "static/chunks/src_utils_locales_fr_json.js"
+    ]
+  },
+  "..\\components\\ui-component\\Locales.tsx -> ../../utils/locales/ro.json": {
+    "id": "..\\components\\ui-component\\Locales.tsx -> ../../utils/locales/ro.json",
+    "files": [
+      "static/chunks/src_utils_locales_ro_json.js"
+    ]
+  },
+  "..\\components\\ui-component\\Locales.tsx -> ../../utils/locales/zh.json": {
+    "id": "..\\components\\ui-component\\Locales.tsx -> ../../utils/locales/zh.json",
+    "files": [
+      "static/chunks/src_utils_locales_zh_json.js"
+    ]
+  }
+}
