@@ -14,6 +14,19 @@ pipeline {
                 checkout scm
             }
         }
+    
+        // AWS EKS 클러스터에 로그인
+        stage('Update Kubeconfig') {
+            steps {
+                script {
+                    withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-key']]) {
+                        bat '''
+                        aws eks update-kubeconfig --region %REGION% --name test-eks-cluster
+                        '''
+                    }
+                }
+            }
+        }
 
         // 서비스 URL을 가져와서 .env 파일 업데이트
         stage('Get Backend Service URL and Update .env') {
