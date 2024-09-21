@@ -117,6 +117,7 @@ function DeptInfo(props) {
   //=========================================================================================================
   //부서조회
   const searchClick = async (e) => {
+    console.log(process.env.REACT_APP_DOCKER_API_URL);
     dispatch(searchDeptInfo({ searchCondition, companyCode, workplaceCode }));
   };
 
