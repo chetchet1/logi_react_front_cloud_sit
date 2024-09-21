@@ -15,15 +15,6 @@ pipeline {
             }
         }
 
-        // 프론트엔드 서비스만 적용
-        stage('Apply Frontend Service') {
-            steps {
-                script {
-                    sh 'kubectl apply -f E:/docker_Logi/logi-front-service.yaml'
-                }
-            }
-        }
-
         // 서비스 URL을 가져와서 .env 파일 업데이트
         stage('Get Backend Service URL and Update .env') {
             steps {
@@ -33,7 +24,7 @@ pipeline {
 
                     // .env 파일의 API URL 업데이트
                     sh """
-                    sed -i 's|REACT_APP_DOCKER_API_URL=.*|REACT_APP_DOCKER_API_URL=http://${backend_service_url}:9102|' .env
+                    sed -i 's|REACT_APP_DOCKER_API_URL=.*|REACT_APP_DOCKER_API_URL=http://${backend_service_url}:9102|' E:/docker_dev/logi_react_front_cloud/.env
                     """
                 }
             }
