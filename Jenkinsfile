@@ -1,17 +1,17 @@
 pipeline {
     agent any
 
+    environment {
+        REGION = 'ap-northeast-2'
+        FRONT_IMAGE_NAME = '339713037008.dkr.ecr.ap-northeast-2.amazonaws.com/logi_front'
+        ECR_PATH = '339713037008.dkr.ecr.ap-northeast-2.amazonaws.com'
+        AWS_CREDENTIAL_NAME = 'aws-key'
+    }
+
     stages {
-        // Terraform을 사용해 클러스터 자원 관리
-        stage('Terraform Apply') {
+        stage('Pull Codes from Github') {
             steps {
-                dir('E:/docker_dev/terraform-codes') {
-                    script {
-                        sh '''
-                        terraform apply -auto-approve
-                        '''
-                    }
-                }
+                checkout scm
             }
         }
 
@@ -20,11 +20,11 @@ pipeline {
             steps {
                 script {
                     // 백엔드 서비스의 URL 가져오기
-                    def backend_service_url = sh(script: "kubectl get service backend-service -o jsonpath='{.status.loadBalancer.ingress[0].hostname}'", returnStdout: true).trim()
+                    def backend_service_url = powershell(script: "kubectl get service backend-service -o jsonpath='{.status.loadBalancer.ingress[0].hostname}'", returnStdout: true).trim()
 
                     // .env 파일의 API URL 업데이트
-                    sh """
-                    sed -i 's|REACT_APP_DOCKER_API_URL=.*|REACT_APP_DOCKER_API_URL=http://${backend_service_url}:9102|' E:/docker_dev/logi_react_front_cloud/.env
+                    bat """
+                    powershell -Command "(Get-Content 'E:/docker_dev/logi_react_front_cloud/.env') -replace 'REACT_APP_DOCKER_API_URL=.*', 'REACT_APP_DOCKER_API_URL=http://$backend_service_url:9102' | Set-Content 'E:/docker_dev/logi_react_front_cloud/.env'"
                     """
                 }
             }
@@ -35,9 +35,9 @@ pipeline {
             steps {
                 dir('E:/docker_dev/logi_react_front_cloud') { 
                     script {
-                        sh """
-                        docker build -t 339713037008.dkr.ecr.ap-northeast-2.amazonaws.com/logi_front:latest .
-                        docker push 339713037008.dkr.ecr.ap-northeast-2.amazonaws.com/logi_front:latest
+                        bat """
+                        docker build -t ${FRONT_IMAGE_NAME}:latest .
+                        docker push ${FRONT_IMAGE_NAME}:latest
                         """
                     }
                 }
@@ -48,7 +48,9 @@ pipeline {
         stage('Apply Frontend Deployment') {
             steps {
                 script {
-                    sh 'kubectl apply -f E:/docker_Logi/logi-front-deployment.yaml'
+                    withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-key']]) {
+                        bat 'kubectl apply -f E:/docker_Logi/logi-front-deployment.yaml'
+                    }
                 }
             }
         }
