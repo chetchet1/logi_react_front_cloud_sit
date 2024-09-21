@@ -81,7 +81,7 @@ const deptinfosearch = memo(
               ></TextField>
             </form>
 
-            <Button variant="contained" color="secondary" onClick={searchClick}>
+            <Button variant="contained" color="secondary" onClick={() => console.log('버튼이 클릭되긴하네 : ', process.env.REACT_APP_DOCKER_API_URL)}>
               부서조회
             </Button>
           </fieldset>
