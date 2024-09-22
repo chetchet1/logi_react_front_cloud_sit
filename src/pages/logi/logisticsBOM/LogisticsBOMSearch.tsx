@@ -54,7 +54,7 @@ function LogisticsBOMSearch() {
   const fetchData = async (divisionCode: any) => {
     console.log('divisionCode', divisionCode);
     try {
-      const result = await axios.get(`${process.env.REACT_APP_DOCKER_API_URL}/compinfo/codedetail/list`, {
+      const result = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/compinfo/codedetail/list`, {
         params: {
           divisionCodeNo: divisionCode
         }
@@ -108,7 +108,7 @@ function LogisticsBOMSearch() {
   const fetchData2 = async () => {
     console.log('divisionCode', divisionCode);
     try {
-      const result = await axios.get(`${process.env.REACT_APP_DOCKER_API_URL}/stock/bom/deploy`, {
+      const result = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/stock/bom/deploy`, {
         params: {
           deployCondition: condition,
           itemCode: itemCode,

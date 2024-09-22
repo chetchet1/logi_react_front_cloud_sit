@@ -7,7 +7,7 @@ const getmpsData = async (startDate: any, endDate: any, dateSearchCondition: any
     dateSearchCondition: dateSearchCondition
   };
 
-  const response = await axios.get(`${process.env.REACT_APP_DOCKER_API_URL}/production/mps/list`, { params: params });
+  const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/production/mps/list`, { params: params });
   let datatata = response.data.gridRowJson;
   console.log('서버에서 받은 데이터 ㅇㅅㅇ???:', response.data.gridRowJson);
 
@@ -16,7 +16,7 @@ const getmpsData = async (startDate: any, endDate: any, dateSearchCondition: any
 
 const convertContractDetailToMps = (contract: any) => {
   console.log("contract : ", contract); //{key1:val1, key2:val2.....}
-  axios.post("${process.env.REACT_APP_DOCKER_API_URL}/production/mps/contractdetail",
+  axios.post("${process.env.NEXT_PUBLIC_BACKEND_URL}/production/mps/contractdetail",
       contract
   ).then(({data}) => {
       Swal.fire({

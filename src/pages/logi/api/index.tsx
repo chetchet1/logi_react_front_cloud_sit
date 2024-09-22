@@ -243,7 +243,7 @@ export const saveFinanInfo = async (action) => {
 //# Redux Saga에서 액션을 처리할 때 사용되며, API에서 데이터를 검색하기 위해 액션 페이로드에서 추출한 매개변수를 사용
 //  이 함수가 호출되면 백엔드 서버로 GET 요청이 보내지고, 해당 API 엔드포인트로부터 응답을 기다린다.
 export const deptInfoRequest = (action) => {
-  console.log(process.env.REACT_APP_DOCKER_API_URL); // URL 확인
+  console.log(process.env.NEXT_PUBLIC_BACKEND_URL); // URL 확인
   return axios.get('/compinfo/department/list', {
     params: {
       searchCondition: action.payload.searchCondition,

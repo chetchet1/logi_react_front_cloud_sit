@@ -97,7 +97,7 @@ function MrpRegister() {
         includeMrpApply: 'excludeMrpApply'
       };
       
-      const response = await axios.get(`${process.env.REACT_APP_DOCKER_API_URL}/production/mps/list`, { params: params });
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/production/mps/list`, { params: params });
 
       setContractData(response.data.gridRowJson);
       console.log('서버에서 받은 데이터 ㅇㅁㅇ!!!:', response.data.gridRowJson);

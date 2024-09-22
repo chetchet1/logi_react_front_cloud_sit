@@ -8,7 +8,7 @@ import * as types from '../action/LogisticsInfoActionType';
 //code
 function* codeInfo(action) {
   try {
-    const { data } = yield axios.get(`${process.env.REACT_APP_DOCKER_API_URL}/compinfo/code/list`, null);
+    const { data } = yield axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/compinfo/code/list`, null);
     //여기서 data는 modelMap으로 리턴된 {"codeList", codeList},{"errorCode", 1},{"errorMsg", "성공"}
     //가 오고 codeList에는 - LogiCodeTO - divisionCodeNo, codeType, divisionCodeName, codeChangeAva~, description,
     //ArrayList<LogiCodeDetailTO> codeDetailTOList - 각각의 divisionCodeNo에 대한 detail {detail_code, detail_code_name} 이 들어가 있다.

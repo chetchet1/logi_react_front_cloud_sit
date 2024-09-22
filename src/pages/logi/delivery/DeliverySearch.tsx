@@ -117,7 +117,7 @@ function DeliverySearch(props) {
   const contractDetailData = async () => {
     try {
       const param = selected[0].contractNo;
-      const response = await axios.get(`${process.env.REACT_APP_DOCKER_API_URL}/logisales/contractdetail/list`, {
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/logisales/contractdetail/list`, {
         params: {
           contractNo: param
         }
@@ -195,7 +195,7 @@ function DeliverySearch(props) {
     
     try {
       const param = selected[0].contractDetailTOList[0].contractDetailNo;
-      await axios.get(`${process.env.REACT_APP_DOCKER_API_URL}/sales/deliver`, {
+      await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/sales/deliver`, {
         params: {
           contractDetailNo: param
         }});

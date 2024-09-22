@@ -275,7 +275,7 @@ function ContractRegist() {
 
       console.log(combinedContract);
 
-      const response = await axios.post(`${process.env.REACT_APP_DOCKER_API_URL}/logisales/contract/new`, combinedContract);
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/logisales/contract/new`, combinedContract);
       console.log('서버 응답:', response.data);
       Swal.fire({
         icon: 'success',

@@ -1,4 +1,4 @@
-import axios from 'api/logiApi'; //'${process.env.REACT_APP_DOCKER_API_URL}/logi'
+import axios from 'api/logiApi'; //'${process.env.NEXT_PUBLIC_BACKEND_URL}/logi'
 
 export const searchMpsList = (param) => {
   axios.get('/production/searchMpsInfo', {
@@ -112,7 +112,7 @@ export const searchMrpGathering = (param) => {
   //     // "batchList" 파라미터에 객체 추가
   //     formData.append('batchList', JSON.stringify([updateEstimateDetail]));
 
-  //     const response = await axios.post('${process.env.REACT_APP_DOCKER_API_URL}/logisales/estimatedetail/batch', formData);
+  //     const response = await axios.post('${process.env.NEXT_PUBLIC_BACKEND_URL}/logisales/estimatedetail/batch', formData);
   //     console.log('서버 응답 데이터:', response.data); // 서버 응답 데이터를 콘솔에 출력
   //     alert('견적상세내역이 수정되었습니다.');
   //   } catch (error) {

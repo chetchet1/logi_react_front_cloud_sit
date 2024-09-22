@@ -40,7 +40,7 @@ function WorkPerformanceManagement(props) {
     ];
 
     const onClick = e => {
-        Axios.get(`${process.env.REACT_APP_DOCKER_API_URL}/quality/workorder/performance-list`)
+        Axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/quality/workorder/performance-list`)
             .then(({data}) => {
 
             setList(data.gridRowJson);

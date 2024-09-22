@@ -30,7 +30,7 @@ export const postEstimateData = (action) =>
 //     dateSearchCondition: dateSearchCondition
 //   };
 
-//   const response = await axios.get(`${process.env.REACT_APP_DOCKER_API_URL}/logisales/estimate/list`, { params: params });
+//   const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/logisales/estimate/list`, { params: params });
 //   let datatata = response.data.gridRowJson;
 //   console.log('서버에서 받은 데이터 ㅇㅅㅇ???:', response.data.gridRowJson);
 
@@ -41,7 +41,7 @@ export const postEstimateData = (action) =>
 // const postEstimateData = async (estimateDate: any, newData: any) => {
 
 //   const response = await axios.post(
-//     `${process.env.REACT_APP_DOCKER_API_URL}/logisales/estimate/new`,
+//     `${process.env.NEXT_PUBLIC_BACKEND_URL}/logisales/estimate/new`,
 //     {
 //       estimateDate: estimateDate,
 //       newEstimateInfo: newData

@@ -99,7 +99,7 @@ function Row({ row }: { row: BasicTableData }) {
 
   const fetchData = async () => {
     try {
-      const result = await axios.get(`${process.env.REACT_APP_DOCKER_API_URL}/compinfo/customer/list`, {
+      const result = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/compinfo/customer/list`, {
         params: {
           searchCondition: 'ALL',
           workplaceCode: ''
@@ -134,7 +134,7 @@ function Row({ row }: { row: BasicTableData }) {
 
   const fetchData2 = async () => {
     try {
-      const result = await axios.get(`${process.env.REACT_APP_DOCKER_API_URL}/compinfo/codedetail/list`, {
+      const result = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/compinfo/codedetail/list`, {
         params: {
           divisionCodeNo: 'IT-_I'
         }
@@ -339,7 +339,7 @@ function Row({ row }: { row: BasicTableData }) {
 
   // try {
   //   const result = await axios.post(
-  //     `${process.env.REACT_APP_DOCKER_API_URL}/logisales/estimate/new`,
+  //     `${process.env.NEXT_PUBLIC_BACKEND_URL}/logisales/estimate/new`,
   //     {
   //       estimateDate: estimateDate,
   //       newEstimateInfo: newData

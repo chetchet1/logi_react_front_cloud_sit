@@ -36,7 +36,7 @@ function WorkOrderDialog(props) {
             formData.append('productionProcessCode', 'PP002');
             formData.append('mrpNo', props.data.mrpNo);
 
-            Axios.post(`${process.env.REACT_APP_DOCKER_API_URL}/quality/workorder`, formData)
+            Axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/quality/workorder`, formData)
                 .then(response => {
                     Swal.fire({
                         icon: 'success',
@@ -58,7 +58,7 @@ function WorkOrderDialog(props) {
 
     useEffect(() => {
         console.log("작업지시 useEffect 진입");
-        Axios.get(`${process.env.REACT_APP_DOCKER_API_URL}/quality/workorder/dialog`, {
+        Axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/quality/workorder/dialog`, {
             params: {
                 mrpGatheringNo: props.data.mrpGatheringNo,
                 mrpNo: props.data.mrpNo

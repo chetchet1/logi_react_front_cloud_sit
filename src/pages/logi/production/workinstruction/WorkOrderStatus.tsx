@@ -77,7 +77,7 @@ const WorkOrderStatus = (props) => {
             console.log(workOrderNo);
             console.log(actualCompletionAmount);
     
-            await Axios.get(`${process.env.REACT_APP_DOCKER_API_URL}/quality/workorder/completion`, {
+            await Axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/quality/workorder/completion`, {
                 params: {
                     workOrderNo: workOrderNo,
                     actualCompletionAmount: actualCompletionAmount
@@ -107,7 +107,7 @@ const WorkOrderStatus = (props) => {
     };
 
     const contractSearch = () => {
-        Axios.get(`${process.env.REACT_APP_DOCKER_API_URL}/quality/workorder/list`)
+        Axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/quality/workorder/list`)
             .then(response => {
                 const responseList = response.data.gridRowJson;
                 const conteactList = responseList.filter(obj => obj.operaioncompleted === null);

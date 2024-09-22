@@ -85,7 +85,7 @@ function Row({ item }: { item: EstimateTO }) {
 
   const fetchData = async () => {
     try {
-      const result = await axios.get(`${process.env.REACT_APP_DOCKER_API_URL}/compinfo/codedetail/list`, {
+      const result = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/compinfo/codedetail/list`, {
         params: {
           divisionCodeNo: 'IT-_I'
         }
@@ -129,7 +129,7 @@ function Row({ item }: { item: EstimateTO }) {
       formData.append('batchList', JSON.stringify([updateEstimateDetail]));
       console.log('@@', formData);
 
-      const response = await axios.post(`${process.env.REACT_APP_DOCKER_API_URL}/logisales/estimatedetail/batch`, formData);
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/logisales/estimatedetail/batch`, formData);
       console.log('서버 응답 데이터:', response.data); // 서버 응답 데이터를 콘솔에 출력
       alert('견적상세내역이 수정되었습니다.');
     } catch (error) {
@@ -145,7 +145,7 @@ function Row({ item }: { item: EstimateTO }) {
 
     // 서버에 해당 데이터 삭제 요청 보내기
     try {
-      await axios.delete(`${process.env.REACT_APP_DOCKER_API_URL}/logisales/estimate`, {
+      await axios.delete(`${process.env.NEXT_PUBLIC_BACKEND_URL}/logisales/estimate`, {
         params: { estimateNo: deletedEstimateDetail.estimateNo, status: 'DELETE' }
       });
       alert('견적상세내역이 삭제되었습니다.');
@@ -395,7 +395,7 @@ function estimateInfo() {
   //       dateSearchCondition: dateSearchCondition,
   //     };
 
-  //     const response = await axios.get(`${process.env.REACT_APP_DOCKER_API_URL}/logisales/estimate/list`, {params: params,});
+  //     const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/logisales/estimate/list`, {params: params,});
 
   //     setContractData(response.data.gridRowJson);
   //     console.log('서버에서 받은 데이터 ㅇㅁㅇ!!!:', response.data.gridRowJson);

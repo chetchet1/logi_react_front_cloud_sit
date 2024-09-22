@@ -296,7 +296,7 @@ function LogisticsBOMRegister() {
   const fetchData3 = async (divisionCode3: any) => {
     console.log('divisionCode3', divisionCode3);
     try {
-      const result = await axios.get(`${process.env.REACT_APP_DOCKER_API_URL}/compinfo/codedetail/list`, {
+      const result = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/compinfo/codedetail/list`, {
         params: {
           divisionCodeNo: divisionCode3
         }
@@ -317,7 +317,7 @@ function LogisticsBOMRegister() {
   const fetchData = async (divisionCode: any) => {
     console.log('divisionCode', divisionCode);
     try {
-      const result = await axios.get(`${process.env.REACT_APP_DOCKER_API_URL}/compinfo/codedetail/list`, {
+      const result = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/compinfo/codedetail/list`, {
         params: {
           divisionCodeNo: divisionCode
         }
@@ -334,7 +334,7 @@ function LogisticsBOMRegister() {
   const fetchData2 = async () => {
     console.log('divisionCode', divisionCode);
     try {
-      const result = await axios.get(`${process.env.REACT_APP_DOCKER_API_URL}/stock/bom/info`, {
+      const result = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/stock/bom/info`, {
         params: {
           parentItemCode: itemCode
         }
@@ -423,7 +423,7 @@ function LogisticsBOMRegister() {
       console.log('newData', newData);
 
       // 서버로 삭제 요청 보내기
-      const result = await axios.post(`${process.env.REACT_APP_DOCKER_API_URL}/stock/bom/batch`, [newData]);
+      const result = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/stock/bom/batch`, [newData]);
 
       console.log('서버 응답:', result.data);
 
@@ -457,7 +457,7 @@ function LogisticsBOMRegister() {
         parentItemCode: params.row.parentItemCode
       };
       console.log('newData', newData);
-      const result = await axios.post(`${process.env.REACT_APP_DOCKER_API_URL}/stock/bom/batch`, [newData]);
+      const result = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/stock/bom/batch`, [newData]);
       alert('항목이 수정되었습니다.');
 
       console.log('서버 응답:', result.data);
@@ -485,7 +485,7 @@ function LogisticsBOMRegister() {
         parentItemCode: params.row.parentItemCode
       };
       console.log('newData', newData);
-      const result = await axios.post(`${process.env.REACT_APP_DOCKER_API_URL}/stock/bom/batch`, [newData]);
+      const result = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/stock/bom/batch`, [newData]);
 
       console.log('서버 응답:', result.data);
       alert('항목이 등록되었습니다.');

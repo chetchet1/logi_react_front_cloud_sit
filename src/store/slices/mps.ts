@@ -35,7 +35,7 @@ export default slice.reducer;
 export function getMpsList(params: mpsType) {
   return async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_DOCKER_API_URL}/production/mps/contractdetail-available`, { params });
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/production/mps/contractdetail-available`, { params });
       console.log('리듀서', response.data.gridRowJson);
       dispatch(slice.actions.getMpsSuccess(response.data.gridRowJson));
     } catch (error) {

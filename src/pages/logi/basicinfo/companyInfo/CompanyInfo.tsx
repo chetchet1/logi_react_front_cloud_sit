@@ -20,7 +20,7 @@ function CompanyInfo() {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_DOCKER_API_URL}/compinfo/company/list`)
+      .get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/compinfo/company/list`)
       .then((response) => {
         setDataList(response.data.gridRowJson);
         console.log('🌟뭘 불러왔을까?🌟', dataList);

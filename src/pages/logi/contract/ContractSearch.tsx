@@ -174,7 +174,7 @@ function ContractSearch() {
     }
 
     try {
-      const response = await axios.get(`${process.env.REACT_APP_DOCKER_API_URL}/logisales/contract/list`, {
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/logisales/contract/list`, {
         params: param
       });
 
@@ -194,7 +194,7 @@ function ContractSearch() {
   const contractDetailData = async (params) => {
     try {
       // 데이터 요청
-      const response = await axios.get(`${process.env.REACT_APP_DOCKER_API_URL}/logisales/contractdetail/list`, {
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/logisales/contractdetail/list`, {
         params: {
           contractNo: params.id
         }
@@ -217,7 +217,7 @@ function ContractSearch() {
   //     console.log("params.id",params.id);
 
   //     try {
-  //         const response = await axios.get(`${process.env.REACT_APP_DOCKER_API_URL}/logisales/contractdetail/list`, {
+  //         const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/logisales/contractdetail/list`, {
   //             params: {
   //                 contractNo: params.id
   //             }

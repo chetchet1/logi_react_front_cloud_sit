@@ -41,7 +41,7 @@ const MySelector = ({ itemName }) => {
 
   const fetchData = async () => {
     try {
-      const result = await axios.get(`${process.env.REACT_APP_DOCKER_API_URL}/compinfo/codedetail/list`, {
+      const result = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/compinfo/codedetail/list`, {
         params: {
           divisionCodeNo: 'IT-_I'
         }

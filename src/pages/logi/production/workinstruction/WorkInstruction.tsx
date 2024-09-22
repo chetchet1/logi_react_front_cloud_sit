@@ -53,7 +53,7 @@ const WorkInstruction = (props) => {
 
     const contractSearch = () => { //작업지시 (작업지시필요목록조회)
         console.log("작업지시 실행");
-        Axios.get(`${process.env.REACT_APP_DOCKER_API_URL}/quality/workorder/mrpavailable`)
+        Axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/quality/workorder/mrpavailable`)
             .then(({data}) => {
                 setList(data.gridRowJson);
                 console.log(data.gridRowJson);

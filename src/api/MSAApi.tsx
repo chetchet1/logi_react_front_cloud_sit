@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export default axios.create({
-  baseURL: `${process.env.REACT_APP_DOCKER_API_URL}`
+  baseURL: `${process.env.NEXT_PUBLIC_BACKEND_URL}`
 });

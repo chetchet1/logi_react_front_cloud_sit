@@ -26,7 +26,7 @@ const codeInfo = (props) => {
     ]
 
     const serchCodeList = async () => {
-      const response = await Axios.get(`${process.env.REACT_APP_DOCKER_API_URL}/compinfo/code/list`);
+      const response = await Axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/compinfo/code/list`);
       const codeList = response.data.codeList;
       console.log(codeList);
       setList(codeList);

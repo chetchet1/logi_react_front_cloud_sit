@@ -1,4 +1,4 @@
-import axios from 'api/logiApi'; //'${process.env.REACT_APP_DOCKER_API_URL}/logi'
+import axios from 'api/logiApi'; //'${process.env.NEXT_PUBLIC_BACKEND_URL}/logi'
 
 export const searchStockList = (param) => {
   return axios.get('/stock/sto/list');
