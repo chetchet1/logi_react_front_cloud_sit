@@ -244,6 +244,7 @@ orleans.codegen.cs
 # Node artifact files
 node_modules/
 dist/
+.next/
 
 # Compiled Java class files
 *.class
