@@ -25,11 +25,11 @@ pipeline {
 
                         // .env 파일의 API URL 업데이트
                         bat """
-                        powershell -Command "(Get-Content 'E:/docker_dev/logi_react_front_cloud/.env') -replace 'NEXT_PUBLIC_BACKEND_URL=.*', 'NEXT_PUBLIC_BACKEND_URL=http://$backend_service_url:9102' | Set-Content 'E:/docker_dev/logi_react_front_cloud/.env'"
+                        powershell -Command "(Get-Content 'd:/docker_Logi/logi_react_front_cloud/.env') -replace 'NEXT_PUBLIC_BACKEND_URL=.*', 'NEXT_PUBLIC_BACKEND_URL=http://$backend_service_url:9102' | Set-Content 'd:/docker_Logi/logi_react_front_cloud/.env'"
                         """
 
                         // .env 파일 내용 확인
-                        def env_content = powershell(script: "Get-Content 'E:/docker_dev/logi_react_front_cloud/.env'", returnStdout: true).trim()
+                        def env_content = powershell(script: "Get-Content 'd:/docker_Logi/logi_react_front_cloud/.env'", returnStdout: true).trim()
                         echo "Updated .env content:\n${env_content}"
                     }
                 }
@@ -39,7 +39,7 @@ pipeline {
         // 프론트엔드 Docker 이미지 빌드 및 ECR 푸시
         stage('Build and Push Frontend Docker Image') {
             steps {
-                dir('E:/docker_dev/logi_react_front_cloud') { 
+                dir('d:/docker_Logi/logi_react_front_cloud') { 
                     script {
                         bat """
                         docker build -t ${FRONT_IMAGE_NAME}:latest .
@@ -55,7 +55,7 @@ pipeline {
             steps {
                 script {
                     withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-key']]) {
-                        bat 'kubectl apply -f E:/docker_Logi/logi-front-deployment.yaml'
+                        bat 'kubectl apply -f d:/docker_Logi/logi-front-deployment.yaml'
                     }
                 }
             }
